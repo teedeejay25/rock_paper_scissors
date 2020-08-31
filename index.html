@@ -1,0 +1,59 @@
+<html>
+    <head></head>
+    <body></body>
+<script>
+    //initialize scores//
+    var playerScore = 0;
+    var computerScore = 0;
+    var tieScore = 0;
+    //create array for options//
+    const choices = ["rock", "paper", "scissors"];
+    
+    //output a random option from array using a function called "computerPlay" and store it in a variable called computerSelection **moved into game() function**//
+    function computerPlay() {
+        return choices[Math.floor(Math.random()*choices.length)];
+    }
+
+    //take input from user and store it in a non-case sensitive variable (use prompt()) **Moved into the game() function**//
+    
+    //compare the two variables to each other using a function called playRPS that takes input as (computerSelection, playerSelection)//
+    function playRPS (playerSelection, computerSelection) {
+        if (playerSelection == "rock" && computerSelection == "scissors" || playerSelection == "scissors" && computerSelection == "paper" || playerSelection == "paper" && computerSelection == "rock") {
+            playerScore++;
+            return(`You win! ${playerSelection} beats ${computerSelection}.`);
+        } else if (playerSelection === computerSelection) {
+            tieScore++;
+            return(`It's a tie. Play again.`);
+        } else {
+            computerScore++;
+            return(`You lose. ${computerSelection} beats ${playerSelection}.`);
+        }
+        console.log(playRPS(playerSelection, computerSelection), `Computer chose: ${computerSelection}, you chose: ${playerSelection}`)
+    }
+//function game() which plays 5 rounds and reports the results, and prompts for each round//
+    function game() {
+        for (let i=0; i < 5; i++) {
+            var playerSelection = window.prompt("Rock, Paper, or Scissors?").toLowerCase();
+            var computerSelection = computerPlay();
+            console.log(playRPS(playerSelection, computerSelection), `Computer chose: ${computerSelection}, you chose: ${playerSelection}.`);
+        }
+    }
+//function score() which reports the scores after 5 rounds have been played//
+    function score() {
+        if (playerScore > computerScore) {
+            console.log(`You Win! Your score: ${playerScore}, computer score: ${computerScore}, ties: ${tieScore}`);
+        }
+        else if (computerScore > playerScore) {
+            console.log (`You lose...Your score: ${playerScore}, computer score: ${computerScore}, ties: ${tieScore}`);
+        }
+        else {
+            console.log (`Tie game. Your score: ${playerScore}, computer score: ${computerScore}, ties: ${tieScore}`);
+        }
+    }
+//run the functions//
+    game();
+    score();
+
+
+</script>
+</html>

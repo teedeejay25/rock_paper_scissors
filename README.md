@@ -1,2 +1,3 @@
-# rock_paper_scissors
-This is a project assignment from the Odin Project, where a player plays rock paper scissors against a random element in the developer console. 
+Had to work through understanding how functions work when they are defined vs when they are called. 
+Important reminder: if you return runs within a function, it will stop the function there. 
+variables need to remain within their perspective functions if you want them to run every time. 
